@@ -9,20 +9,17 @@ namespace MvcOnlineTicariOtomasyon.Models.Siniflar
     public class SatisHareket
     {
         [Key]
-        public int SatisHareketID { get; set; }
-        //ürün
-        //cari
-        //personel
-
-        public DateTime SatisHareketTarih { get; set; }
-        public int SatisHareketAdet { get; set; }
-        public decimal SatisHareketFiyat { get; set; }
-        public decimal SatisHareketToplamTutar { get; set; }
+        public int SatisID { get; set; }
+      
+        public DateTime SatisTarih { get; set; }
+        public int SatisAdet { get; set; }
+        public decimal SatisFiyat { get; set; }
+        public decimal SatisToplamTutar { get; set; }
 
 
 
-        public ICollection<Urun> Uruns { get; set; }
-        public ICollection<Cari> Caris { get; set; }
-        public ICollection<Personel> Personels { get; set; }
+        public Urun Urun { get; set; }
+        public Cari Cari { get; set; }
+        public Personel Personel { get; set; }
     }
 }

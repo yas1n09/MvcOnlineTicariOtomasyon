@@ -18,8 +18,7 @@ namespace MvcOnlineTicariOtomasyon.Models.Siniflar
         public string FaturaKalemAciklama { get; set; }
 
 
-        [Column(TypeName = "varchar")]
-        [StringLength(30)]
+        
         public int FaturaKalemMiktar { get; set; }
         public decimal FaturaKalemBirimFiyat { get; set; }
         public decimal FaturaKalemBirimTutar { get; set; }

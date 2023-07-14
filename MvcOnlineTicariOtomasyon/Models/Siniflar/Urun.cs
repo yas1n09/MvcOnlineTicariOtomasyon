@@ -33,8 +33,9 @@ namespace MvcOnlineTicariOtomasyon.Models.Siniflar
 
 
 
-        public SatisHareket satisHareket { get; set; }
 
         public Kategori Kategori { get; set; }
+
+        public ICollection<SatisHareket> SatisHarekets { get; set; }
     }
 }

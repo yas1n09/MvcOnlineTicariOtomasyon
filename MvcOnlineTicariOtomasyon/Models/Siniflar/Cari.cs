@@ -33,8 +33,7 @@ namespace MvcOnlineTicariOtomasyon.Models.Siniflar
         public string CariMail { get; set; }
 
 
-        public SatisHareket satisHareket { get; set; }
-
+        public ICollection<SatisHareket> SatisHarekets { get; set; }
 
     }
 }
