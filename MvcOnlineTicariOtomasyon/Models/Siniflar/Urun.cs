@@ -32,7 +32,7 @@ namespace MvcOnlineTicariOtomasyon.Models.Siniflar
         public string UrunGorsel { get; set; }
 
 
-
+        public int KategoriID { get; set; }
 
         public virtual Kategori Kategori { get; set; }
 

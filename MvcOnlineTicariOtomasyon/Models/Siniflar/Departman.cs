@@ -10,12 +10,12 @@ namespace MvcOnlineTicariOtomasyon.Models.Siniflar
     public class Departman
     {
         [Key]
-        public int DepertmanID { get; set; }
+        public int DepartmanID { get; set; }
 
 
         [Column(TypeName = "varchar")]
         [StringLength(30)]
-        public string DepertmanAd { get; set; }
+        public string DepartmanAd { get; set; }
 
 
         public ICollection<Personel> Personels { get; set; }
