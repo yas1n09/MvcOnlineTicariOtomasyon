@@ -13,6 +13,7 @@
         <th>Departman Adı</th>
         <th>Sil</th>
         <th>Güncelle</th>
+        <th>Detaylar</th>
 
     </tr>
     @foreach (var k in Model)
@@ -25,11 +26,13 @@
                 @k.DepartmanAd
             </td>
             <td><a href="/Departman/DepartmanSil/@k.DepartmanID" class="btn btn-danger">Sil</a></td>
-            <td><a href="/Kategori/DepartmanGetir/@k.DepartmanID" class="btn btn-success">Güncelle</a></td>
+            <td><a href="/Departman/DepartmanGetir/@k.DepartmanID" class="btn btn-warning">Güncelle</a></td>
+            <td><a href="/Departman/DepartmanDetay/@k.DepartmanID" class="btn btn-success" style="background-color:lightcoral">Detay</a></td>
         </tr>
     }
 
 
 </table>
+<a href="/Departman/DepartmanEkle" class="btn btn-info">Departman Ekle</a>
 
 
