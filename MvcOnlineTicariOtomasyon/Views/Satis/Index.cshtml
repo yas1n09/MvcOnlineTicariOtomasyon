@@ -1,0 +1,45 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Siniflar
+@model List<SatisHareket>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<table class="table table-bordered" style="margin-top:20px">
+
+
+    <tr>
+        <th>ID</th>
+        <th>Urun</th>
+        <th>Cari</th>
+        <th>Personel</th>
+        <th>Adet</th>
+        <th>Fiyat</th>
+        <th>Toplam Tutar</th>
+        <th>Tarih</th>
+        <th>Güncelle</th>
+        <th>Detaylar</th>
+
+    </tr>
+    @foreach (var k in Model)
+    {
+        <tr>
+            <td>@k.SatisID</td>
+            <td>@k.Urun.UrunAd</td>
+            <td>@k.Cari.CariAd @k.Cari.CariSoyad</td>
+            <td>@k.Personel.PersonelAd @k.Personel.PersonelSoyad</td>
+            <td>@k.SatisAdet</td>
+            <td>@k.SatisFiyat</td>
+            <td>@k.SatisToplamTutar</td>
+            <td>@k.SatisTarih</td>
+            <td><a href="/Personel/PersonelGetir/@k.PersonelID" class="btn btn-warning">Güncelle</a></td>
+            <td><a href="/Departman/DepartmanPersonelSatis/@k.PersonelID" class="btn btn-success" style="background-color:lightcoral">Detay</a></td>
+        </tr>
+    }
+
+
+</table>
+<a href="/Satis/YeniSatis" class="btn btn-info">Yeni Satış Yap</a>
+
+
+
