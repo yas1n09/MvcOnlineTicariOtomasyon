@@ -12,7 +12,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         Context c = new Context();
         public ActionResult Index()
         {
-            var urunler = c.Uruns.Where(x=>x.Durum==true).ToList();
+            var urunler = c.Uruns.Where(x => x.Durum == true).ToList();
             return View(urunler);
         }
         [HttpGet]
@@ -69,12 +69,11 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             urn.UrunGorsel = k.UrunGorsel;
             c.SaveChanges();
             return RedirectToAction("Index");
-        
-            public ActionResult UrunListesi()
-            {
-                var degerler = c.Uruns.ToList();
-                return View(degerler);
-            }
-
+        }
+        public ActionResult UrunListesi()
+        {
+            var degerler = c.Uruns.ToList();
+            return View(degerler);
+        }
     }
 }

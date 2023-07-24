@@ -102,5 +102,12 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             var degerler = c.SatisHarekets.Where(x => x.SatisID == id).ToList();
             return View(degerler);
         }
+
+        public ActionResult SatisListesi()
+        {
+            var degerler = c.SatisHarekets.ToList();
+            return View(degerler);
+        }
+
     }
 }
