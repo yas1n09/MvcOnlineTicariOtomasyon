@@ -536,6 +536,7 @@
     <Content Include="Views\Satis\SatisListesi.cshtml" />
     <Content Include="Views\Fatura\Index.cshtml" />
     <Content Include="Views\Fatura\FaturaEkle.cshtml" />
+    <Content Include="Views\Fatura\FaturaGetir.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -15,9 +15,9 @@
         <th>Vergi Dairesi</th>
         <th>Tarih</th>
         <th>Saat</th>
-        <th>Toplam</th>
         <th>Teslim Eden</th>
         <th>Teslim Alan</th>
+        <th>Toplam</th>
         <th>Güncelle</th>
         <th>Detaylar</th>
 
@@ -31,10 +31,12 @@
             <td>@k.VergiDairesi</td>
             <td>@k.FaturaTarih</td>
             <td>@k.FaturaSaat</td>
-            <td>100</td>
+
             <td>@k.FaturaTeslimEden</td>
             <td>@k.FaturaTeslimAlan</td>
-            <td><a href="/Departman/DepartmanDetay/@k.FaturaID" class="btn btn-warning">Güncelle</a></td>
+            <td>@k.Toplam</td>
+
+            <td><a href="/Fatura/FaturaGetir/@k.FaturaID" class="btn btn-warning">Güncelle</a></td>
             <td><a href="/Departman/DepartmanDetay/@k.FaturaID" class="btn btn-success" style="background-color:lightcoral">Detay</a></td>
         </tr>
     }

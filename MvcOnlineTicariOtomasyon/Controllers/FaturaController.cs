@@ -34,6 +34,12 @@ namespace MvcOnlineTicariOtomasyon.Controllers
 
         }
 
+        public ActionResult FaturaGetir(int id)
+        {
+            var fatura = c.Faturas.Find(id);
+            return View("FaturaGetir", fatura);
+        }
+
 
     }
 }
