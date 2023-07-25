@@ -16,5 +16,24 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             var liste = c.Faturas.ToList();
             return View(liste);
         }
+
+        [HttpGet]
+        public ActionResult FaturaEkle()
+        {
+            return View();
+
+        }
+
+        [HttpPost]
+        public ActionResult FaturaEkle(Fatura f)
+        {
+            c.Faturas.Add(f);
+            c.SaveChanges();
+
+             return RedirectToAction("Index");
+
+        }
+
+
     }
 }
