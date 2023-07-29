@@ -13,11 +13,13 @@ namespace MvcOnlineTicariOtomasyon.Models.Siniflar
         public int GiderID { get; set; }
 
 
-
+        [Display(Name = "Gider Açıklaması")]
         [Column(TypeName = "varchar")]
         [StringLength(100)]
         public string GiderAciklama { get; set; }
+        [Display(Name = "Gider Tarihi")]
         public DateTime GiderTarih { get; set; }
+        [Display(Name = "Gider Tutarı")]
         public decimal GiderTutar { get; set; }
     }
 }

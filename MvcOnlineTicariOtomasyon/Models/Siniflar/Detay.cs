@@ -11,11 +11,13 @@ namespace MvcOnlineTicariOtomasyon.Models.Siniflar
     {
         [Key]
         public int DetayID { get; set; }
+        [Display(Name = "Ürün Adı")]
         [Column(TypeName="Varchar")]
         [StringLength(30)]
         public string UrunAd { get; set; }
         [Column(TypeName = "Varchar")]
         [StringLength(2000)]
+        [Display(Name = "Ürün Bilgisi")]
         public string UrunBilgi { get; set; }
     }
 }
