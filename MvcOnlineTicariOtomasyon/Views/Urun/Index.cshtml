@@ -1,54 +1,59 @@
 ﻿@using MvcOnlineTicariOtomasyon.Models.Siniflar
+
 @model List<Urun>
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 <br />
+@using (Html.BeginForm("Index", "Urun", FormMethod.Get))
+{
+    <p>
+        Ürün Adı: @Html.TextBox("p")
+        <input type="submit" value="Ara"/>
+    </p>
+}
+<br />
+
 <table class="table table-bordered" style="margin-top:20px">
 
 
     <tr>
-        <th>ID</th>
         <th>Ürün Adı</th>
         <th>Marka</th>
         <th>Stok</th>
         <th>Alış Fiyat</th>
         <th>Satış Fiyat</th>
         <th>Kategori</th>
-        <th>Görsel</th>
 
     </tr>
     @foreach (var u in Model)
     {
-    <tr>
-        <td>
-            @u.UrunID
-        </td>
-        <td>
-            @u.UrunAd
-        </td>
-        <td>
-            @u.Marka
-        </td>
-        <td>
-            @u.Stok
-        </td>
-        <td>
-            @u.AlisFiyat
-        </td>
-        <td>
-            @u.SatisFiyat
-        </td>
-        <td>
-            @u.Kategori.KategoriAd
-        </td>
-        <td>
-            @u.UrunGorsel
-        </td>
-        <td><a href="/Urun/UrunSil/@u.UrunID" class="btn btn-danger">Sil</a></td>
-        <td><a href="/Urun/UrunGetir/@u.UrunID" class="btn btn-success">Güncelle</a></td>
-    </tr>
+        <tr>
+
+            <td>
+                @u.UrunAd
+            </td>
+            <td>
+                @u.Marka
+            </td>
+            <td>
+                @u.Stok
+            </td>
+            <td>
+                @u.AlisFiyat ₺
+            </td>
+            <td>
+                @u.SatisFiyat ₺
+            </td>
+            <td>
+                @u.Kategori.KategoriAd
+            </td>
+            >
+            <td><a href="/Urun/UrunSil/@u.UrunID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Urun/UrunGetir/@u.UrunID" class="btn btn-success">Güncelle</a></td>
+        </tr>
     }
 
 

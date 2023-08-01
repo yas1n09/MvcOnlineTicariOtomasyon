@@ -4,16 +4,33 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MvcOnlineTicariOtomasyon.Models.Siniflar;
+
+
+
+
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
     public class UrunController : Controller
     {
         // GET: Urun
         Context c = new Context();
-        public ActionResult Index()
+        public ActionResult Index(string p)
         {
-            var urunler = c.Uruns.Where(x => x.Durum == true).ToList();
-            return View(urunler);
+            
+            var urunler = from x in c.Uruns select x;
+
+            if (!string.IsNullOrEmpty(p))
+            {
+               // urunler = urunler.Where(x => x.Durum == true);
+                urunler = urunler.Where(y => y.UrunAd.Contains(p));
+                
+                    
+                //urunler = urunler.Where(y => y.UrunAd.Contains(p));
+            }
+            //var urunler1 = urunler ;
+            //urunler1 = urunler.Where(z => z.UrunAd.Contains(p));
+            //var urunler = c.Uruns.Where(x => x.Durum == true).ToList();
+            return View(urunler.ToList());
         }
         [HttpGet]
         public ActionResult YeniUrun()

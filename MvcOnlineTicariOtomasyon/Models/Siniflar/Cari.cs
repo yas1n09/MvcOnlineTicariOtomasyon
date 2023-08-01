@@ -35,7 +35,7 @@ namespace MvcOnlineTicariOtomasyon.Models.Siniflar
         [Display(Name = "Cari Durumu")]
         public bool Durum { get; set; }
 
-
+        [Display(Name = "Cari Şifresi")]
         [Column(TypeName = "varchar")]
         [StringLength(20)]
         public string CariSifre { get; set; }
