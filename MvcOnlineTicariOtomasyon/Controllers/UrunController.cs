@@ -16,20 +16,20 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         Context c = new Context();
         public ActionResult Index(string p)
         {
-            
-            var urunler = from x in c.Uruns select x;
+            var degerler = c.Uruns.Where(z => z.Durum == true);
+
+            var urunler = from x in degerler select x;
 
             if (!string.IsNullOrEmpty(p))
             {
-               // urunler = urunler.Where(x => x.Durum == true);
+                // urunler = urunler.Where(x => x.Durum == true);
                 urunler = urunler.Where(y => y.UrunAd.Contains(p));
                 
                     
-                //urunler = urunler.Where(y => y.UrunAd.Contains(p));
             }
-            //var urunler1 = urunler ;
-            //urunler1 = urunler.Where(z => z.UrunAd.Contains(p));
-            //var urunler = c.Uruns.Where(x => x.Durum == true).ToList();
+            
+            
+            
             return View(urunler.ToList());
         }
         [HttpGet]
