@@ -143,6 +143,7 @@
     <Compile Include="Controllers\GaleriController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IstatistikController.cs" />
+    <Compile Include="Controllers\KargoController.cs" />
     <Compile Include="Controllers\KategoriController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PersonelController.cs" />
@@ -152,6 +153,10 @@
     <Compile Include="Controllers\YapilacakController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202308031403000_denemekargo1.cs" />
+    <Compile Include="Migrations\202308031403000_denemekargo1.designer.cs">
+      <DependentUpon>202308031403000_denemekargo1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Siniflar\Admin.cs" />
@@ -163,6 +168,8 @@
     <Compile Include="Models\Siniflar\Fatura.cs" />
     <Compile Include="Models\Siniflar\FaturaKalem.cs" />
     <Compile Include="Models\Siniflar\Gider.cs" />
+    <Compile Include="Models\Siniflar\KargoDetay.cs" />
+    <Compile Include="Models\Siniflar\KargoTakip.cs" />
     <Compile Include="Models\Siniflar\Kategori.cs" />
     <Compile Include="Models\Siniflar\Personel.cs" />
     <Compile Include="Models\Siniflar\SatisHareket.cs" />
@@ -3185,6 +3192,7 @@
     <Content Include="Views\CariPanel\Siparislerim.cshtml" />
     <Content Include="Views\Alertler\Index.cshtml" />
     <Content Include="Views\Urun\SatisYap.cshtml" />
+    <Content Include="Views\Kargo\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -3212,6 +3220,11 @@
     <TypeScriptCompile Include="AdminLTE-3.0.4\plugins\fullcalendar-interaction\main.d.ts" />
     <TypeScriptCompile Include="AdminLTE-3.0.4\plugins\fullcalendar-timegrid\main.d.ts" />
     <TypeScriptCompile Include="AdminLTE-3.0.4\plugins\fullcalendar\main.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202308031403000_denemekargo1.resx">
+      <DependentUpon>202308031403000_denemekargo1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
