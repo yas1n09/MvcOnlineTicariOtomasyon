@@ -11,12 +11,15 @@ namespace MvcOnlineTicariOtomasyon.Models.Siniflar
     {
         [Key]
         public int KargoTakipID { get; set; }
+
         [Column(TypeName = "varchar")]
         [StringLength(10)]
         public string TakipKodu { get; set; }
+
         [Column(TypeName = "varchar")]
         [StringLength(300)]
         public string Aciklama { get; set; }
+
         public DateTime TarihZaman { get; set; }
     }
 }

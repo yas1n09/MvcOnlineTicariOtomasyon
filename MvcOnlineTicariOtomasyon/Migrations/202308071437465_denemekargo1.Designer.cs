@@ -13,12 +13,12 @@ namespace MvcOnlineTicariOtomasyon.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202308031403000_denemekargo1"; }
+            get { return "202308071437465_denemekargo1"; }
         }
         
         string IMigrationMetadata.Source
         {
-            get { return Resources.GetString("Source"); }
+            get { return null; }
         }
         
         string IMigrationMetadata.Target

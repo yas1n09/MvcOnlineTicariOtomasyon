@@ -5,29 +5,41 @@
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
+<br />
+@using (Html.BeginForm("Index", "Kargo", FormMethod.Get))
+{
+    <p>
+        Kargo Takip Numarası: @Html.TextBox("p")
+        <input type="submit" value="Ara" />
+    </p>
+}
+
 
 <table class="table table-bordered" style="margin-top:20px">
+
+
     <tr>
+        <th>KargoDetayID</th>
         <th>Personel</th>
-        <th>Alicı</th>
+        <th>Alıcı</th>
         <th>Tarih</th>
         <th>Detaylar</th>
+
     </tr>
     @foreach (var k in Model)
     {
         <tr>
+            <td>@k.KargoDetayID</td>
             <td>@k.Personel</td>
             <td>@k.Alici</td>
             <td>@k.Tarih</td>
-            <td>
-                <a href="/Departman/DepartmanDetay/@k.KargoDetayID"
-                   class="btn btn-default" style=" background-color:lightcoral";
-                   color:white">Detaylar</a>
-            </td>
+            <td><a href="/Departman/DepartmanDetay/@k.KargoDetayID" class="btn btn-success" style="background-color:lightcoral">Detay</a></td>
         </tr>
     }
-    </table>
-    <a href="/Departman/DepartmanEkle" class="btn btn-info">Departman Ekle</a>
+
+
+</table>
+<a href="/Kargo/KargoEkle" class="btn btn-info">Yeni Kargo Girişi</a>
 
 
 

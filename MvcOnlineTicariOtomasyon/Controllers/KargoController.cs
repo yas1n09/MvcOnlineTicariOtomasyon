@@ -13,8 +13,9 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         Context c = new Context();
         public ActionResult Index()
         {
+
             var kargolar = c.KargoDetays.ToList();
-            return View();
+            return View(kargolar);
         }
     }
 }

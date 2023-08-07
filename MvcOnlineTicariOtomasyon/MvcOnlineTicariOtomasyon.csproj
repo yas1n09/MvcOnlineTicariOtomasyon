@@ -154,9 +154,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202308031403000_denemekargo1.cs" />
-    <Compile Include="Migrations\202308031403000_denemekargo1.designer.cs">
-      <DependentUpon>202308031403000_denemekargo1.cs</DependentUpon>
+    <Compile Include="Migrations\202308071437465_denemekargo1.cs" />
+    <Compile Include="Migrations\202308071437465_denemekargo1.designer.cs">
+      <DependentUpon>202308071437465_denemekargo1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Siniflar\Admin.cs" />
@@ -3222,8 +3222,8 @@
     <TypeScriptCompile Include="AdminLTE-3.0.4\plugins\fullcalendar\main.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202308031403000_denemekargo1.resx">
-      <DependentUpon>202308031403000_denemekargo1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202308071437465_denemekargo1.resx">
+      <DependentUpon>202308071437465_denemekargo1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
