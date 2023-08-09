@@ -22,7 +22,9 @@
         <th>KargoDetayID</th>
         <th>Personel</th>
         <th>Alıcı</th>
+        <th>Kargo Takip Kodu</th>
         <th>Tarih</th>
+
         <th>Detaylar</th>
 
     </tr>
@@ -32,8 +34,9 @@
             <td>@k.KargoDetayID</td>
             <td>@k.Personel</td>
             <td>@k.Alici</td>
+            <td>@k.TakipKodu</td>
             <td>@k.Tarih</td>
-            <td><a href="/Departman/DepartmanDetay/@k.KargoDetayID" class="btn btn-success" style="background-color:lightcoral">Detay</a></td>
+            <td><a href="/Kargo/KargoTakip/@k.TakipKodu" class="btn btn-success" style="background-color:lightcoral">Detay</a></td>
         </tr>
     }
 
