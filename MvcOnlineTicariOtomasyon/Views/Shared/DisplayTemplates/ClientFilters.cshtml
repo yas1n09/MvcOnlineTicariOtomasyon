@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Central.Linq.FilterDefinition>
+<fieldset>
+	<legend>список фильтров</legend>
+	@if (Model != null) {
+	 foreach (Central.Linq.FilterDefinition filter in Model) {
+		@Html.DisplayFor(x => filter)
+	 }
+ } else {
+		<text>Без фильтрации</text>
+ }
+</fieldset>
+
+@Html.Partial("Controls/CreateFilter", new Central.Linq.Mvc.FilterParam())
+
+@Html.ScriptBlock(
+@<script type="text/javascript">
+	$(document).ready(function () {
+		$('select[name$=Name]').change(function () {
+		    $.getJSON('/@ViewData["queryable_controller"]/ChangeOperators', { fieldName: $(this).val() }, function (result) {
+				$('select[name$=Operator]').empty();
+				$.each(result, function (index, item) {
+					$('select[name$=Operator]').append('<option value="' + item.Name + '">' + item.DisplayName + '</option>');
+				});
+			});
+		});
+	});
+</script>
+)
+@section scripts{
+	@Content.Scripts("jquery.validate.min.js", Url)
+	@Content.Scripts("jquery.validate.unobtrusive.min.js", Url)
+}

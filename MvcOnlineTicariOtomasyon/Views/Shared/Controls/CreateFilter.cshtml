@@ -1,0 +1,26 @@
+﻿@model Central.Linq.Mvc.FilterParam
+@using (Html.BeginForm("createfilter", ViewData["queryable_controller"].ToString(), new {
+    queryable_action = ViewData["queryable_action"].ToString(),
+    queryable_controller = ViewData["queryable_controller"].ToString()
+}, FormMethod.Post)) {
+    @Html.ValidationSummary(true)
+	
+    @Html.HiddenFor(x => Model.DisplayName)
+    @Html.ValidationSummary(false)
+  
+    <p>
+        @Html.DropDownListFor(x => Model.Name, ((IEnumerable<Central.Linq.Mvc.FieldInformation>)ViewBag.Fields).Select(option => new SelectListItem {
+       Selected = false,
+       Text = option.DisplayName,
+       Value = !string.IsNullOrEmpty(option.FieldData("Enum")) ? option.Name + "|" + option.FieldData("Enum") : option.Name
+   }), "--- выбрать ---")
+        @Html.ValidationMessageFor(x => Model.Name)
+        @Html.EnumDropDownListFor(x => Model.Operator)
+        @Html.ValidationMessageFor(x => Model.Operator)
+        @Html.EditorFor(x => Model.Value)
+        @Html.ValidationMessageFor(x => Model.Value)
+    </p>
+    <p>
+        <input type="submit" value="Добавить" />
+    </p>
+}

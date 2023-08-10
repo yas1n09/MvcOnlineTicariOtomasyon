@@ -1,0 +1,5 @@
+﻿@model Central.Linq.FilterDefinition
+@using (Html.BeginForm("deletefilter", ViewData["queryable_controller"].ToString(), new { id = Model.Id, queryable_action = ViewData["queryable_action"], queryable_controller = ViewData["queryable_controller"] })) {
+	@Html.DisplayFor(x => Model.Name) @Html.DisplayFor(x => Model.Operator) @Html.DisplayFor(x => Model.Value) 
+	<input type="submit" value="Удалить" /><br />
+}
