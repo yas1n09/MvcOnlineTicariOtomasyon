@@ -34,29 +34,52 @@ namespace MvcOnlineTicariOtomasyon.Controllers
 
             var mesajlar = c.Mesajlars.Where(x=>x.Alici==mail).ToList();
             var gelensayisi = c.Mesajlars.Count(x => x.Alici == mail).ToString();
+            var gidensayisi = c.Mesajlars.Count(x => x.Gonderici == mail).ToString();
+
+            ViewBag.d2 = gidensayisi;
             ViewBag.d1 = gelensayisi;
             return View(mesajlar);
         }
         public ActionResult GidenMesajlar()
         {
             var mail = (string)Session["CariMail"];
-
+            var gelensayisi = c.Mesajlars.Count(x => x.Alici == mail).ToString();
+            ViewBag.d1 = gelensayisi;
             var mesajlar = c.Mesajlars.Where(x => x.Gonderici == mail).ToList();
             var gidensayisi = c.Mesajlars.Count(x => x.Gonderici == mail).ToString();
+
             ViewBag.d2 = gidensayisi;
             return View(mesajlar);
         }
+        public ActionResult MesajDetay(int id)
+        {
+            var degerler = c.Mesajlars.Where(x => x.MesajID == id).ToList();
+
+
+
+            var mail = (string)Session["CariMail"];
+            var gelensayisi = c.Mesajlars.Count(x => x.Alici == mail).ToString();
+            ViewBag.d1 = gelensayisi;
+            var gidensayisi = c.Mesajlars.Count(x => x.Gonderici == mail).ToString();
+            ViewBag.d2 = gelensayisi;
+
+            return View(degerler);
+        }
+
+
+
+
         [HttpGet]
         public ActionResult YeniMesaj()
         {
             return View();
         }
 
-        //[HttpPost]
-        //public ActionResult YeniMesaj()
-        //{
-        //    return View();
-        //}
+        [HttpPost]
+        public ActionResult YeniMesaj(Mesajlar m)
+        {
+            return View();
+        }
 
     }
 }
