@@ -17,7 +17,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         public ActionResult Index()
         {
             var Mail = (string)Session["CariMail"];
-            var degerler = c.Caris.FirstOrDefault(x => x.CariMail == Mail);
+            var degerler = c.Caris.Where(x => x.CariMail == Mail).ToList();
             ViewBag.m = Mail;
             return View(degerler);
         }
