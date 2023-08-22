@@ -8,6 +8,7 @@ using MvcOnlineTicariOtomasyon.Models.Siniflar;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
+    [Authorize]
     public class DepartmanController : Controller
     {
         // GET: Departman
@@ -26,6 +27,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         }
 
         [HttpPost]
+        
         public ActionResult DepartmanEkle(Departman d)
         {
             c.Departmans.Add(d);
