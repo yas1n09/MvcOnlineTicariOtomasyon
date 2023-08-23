@@ -213,13 +213,38 @@
                             </div>
 
                         </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">
+
+                                Teslim Alan
+
+                            </label>
+
+                            <div class="col-md-4">
+
+                                <input type="text" id="FaturaTeslimAlan" name="FaturaTeslimAlan" placeholder="Fatura Teslim Alan " class="form-control" />
+
+                            </div>
+                            <label class="control-label col-md-2">
+
+                                Toplam Tutar
+
+                            </label>
+
+                            <div class="col-md-4">
+
+                                <input type="text" id="Toplam" name="Toplam" placeholder="Toplam Tutar " class="form-control" />
+
+                            </div>
+
+                        </div>
                     </div>
 
 
 
-                    @*Order Details*@
+                    @*Fatura Kalemleri*@
 
-                    <h5 style="margin-top:10px;color:#ff6347">Order Details</h5>
+                    <h5 style="margin-top:10px;color:#ff6347">Fatura Kalemleri</h5>
 
                     <hr />
 
@@ -231,25 +256,25 @@
 
                             <label class="control-label col-md-2">
 
-                                Product Name
+                                Açıklama
 
                             </label>
 
                             <div class="col-md-4">
 
-                                <input type="text" id="urun" name="urun" placeholder="aa Name" class="form-control" />
+                                <input type="text" id="FaturaKalemAciklama" name="FaturaKalemAciklama" placeholder="Ürün / Birim Açıklama" class="form-control" />
 
                             </div>
 
                             <label class="control-label col-md-2">
 
-                                Price
+                                Fiyat
 
                             </label>
 
                             <div class="col-md-4">
 
-                                <input type="number" id="Fiyat" name="Fiyat" placeholder="Product Price" class="form-control" />
+                                <input type="number" id="BirimFiyat" name="BirimFiyat" placeholder="Birim Fiyat" class="form-control" />
 
                             </div>
 
@@ -260,19 +285,19 @@
 
                             <label class="control-label col-md-2">
 
-                                Quantity
+                                Miktar
 
                             </label>
 
                             <div class="col-md-4">
 
-                                <input type="number" id="Adet" name="Adet" placeholder="Quantity" class="form-control" />
+                                <input type="number" id="Miktar" name="Miktar" placeholder="Miktar Giriniz" class="form-control" />
 
                             </div>
 
                             <div class="col-md-2 col-lg-offset-4">
 
-                                <a id="addToList" class="btn btn-primary">Add To List</a>
+                                <a id="addToList" class="btn btn-primary">Listeye Ekle</a>
 
                             </div>
 
@@ -285,15 +310,14 @@
 
                                 <tr>
 
-                                    <th style="width:30%">Product</th>
+                                    <th style="width:30%">Açıklama</th>
 
-                                    <th style="width:20%">Unit Price</th>
+                                    <th style="width:20%">Miktar</th>
 
-                                    <th style="width:15%">Quantity</th>
+                                    <th style="width:15%">Fiyat</th>
 
-                                    <th style="width:25%">Amount</th>
+                                    <th style="width:25%">Tutar</th>
 
-                                    <th style="width:10%"></th>
 
                                 </tr>
 
@@ -309,9 +333,9 @@
 
                 <div class="modal-footer">
 
-                    <button type="reset" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="reset" class="btn btn-default" data-dismiss="modal">Kapat</button>
 
-                    <button id="saveOrder" type="submit" class="btn btn-danger">Save Order</button>
+                    <button id="saveOrder" type="submit" class="btn btn-danger">Faturayı Kaydet</button>
 
                 </div>
 
@@ -344,21 +368,21 @@
             e.preventDefault();
 
 
-            if ($.trim($("#urun").val()) == "" || $.trim($("#Fiyat").val()) == "" || $.trim($("#Adet").val()) == "") return;
+            if ($.trim($("#FaturaKalemAciklama").val()) == "" || $.trim($("#BirimFiyat").val()) == "" || $.trim($("#Miktar").val()) == "") return;
 
 
-            var urun = $("#urun").val(),
+            var FaturaKalemAciklama = $("#FaturaKalemAciklama").val(),
 
-                Fiyat = $("#Fiyat").val(),
+                BirimFiyat = $("#BirimFiyat").val(),
 
-                Adet = $("#Adet").val(),
+                Miktar = $("#Miktar").val(),
 
                 detailsTableBody = $("#detailsTable tbody");
 
 
-            var productItem = '<tr><td>' + urun + '</td><td>' + Adet + '</td><td>' + Fiyat + '</td><td>' + (parseFloat(Fiyat) * parseInt(Adet)) + '</td><td><a data-itemId="0" href="#" class="deleteItem">Remove</a></td></tr>';
+            var Degerler = '<tr><td>' + FaturaKalemAciklama + '</td><td>' + Miktar + '</td><td>' + BirimFiyat + '</td><td>' + (parseFloat(BirimFiyat) * parseInt(Miktar)) + '</td><td><a data-itemId="0" href="#" class="deleteItem">Remove</a></td></tr>';
 
-            detailsTableBody.append(productItem);
+            detailsTableBody.append(Degerler);
 
             clearItem();
 
@@ -368,11 +392,11 @@
 
         function clearItem() {
 
-            $("#urun").val('');
+            $("#FaturaKalemAciklama").val('');
 
-            $("#Fiyat").val('');
+            $("#BirimFiyat").val('');
 
-            $("#Adet").val('');
+            $("#Miktar").val('');
 
         }
 
@@ -408,7 +432,7 @@
 
                 type: 'POST',
 
-                url: "/Siparis/SaveOrder",
+                url: "/Fatura/FaturaKaydet",
 
                 data: data,
 
@@ -446,13 +470,13 @@
 
                 orderArr.push({
 
-                    urun: $(this).find('td:eq(0)').html(),
+                    FaturaKalemAciklama: $(this).find('td:eq(0)').html(),
 
-                    Adet: $(this).find('td:eq(1)').html(),
+                    Miktar: $(this).find('td:eq(1)').html(),
 
-                    Fiyat: $(this).find('td:eq(2)').html(),
+                    BirimFiyat: $(this).find('td:eq(2)').html(),
 
-                    Toplam: $(this).find('td:eq(3)').html()
+                    Tutar: $(this).find('td:eq(3)').html()
 
                 });
 
@@ -462,11 +486,16 @@
 
             var data = JSON.stringify({
 
-                ad: $("#ad").val(),
+                FaturaSeriNo: $("#FaturaSeriNo").val(),
+                FaturaSiraNo: $("#FaturaSiraNo").val(),
+                FaturaTarih: $("#FaturaTarih").val(),
+                VergiDairesi: $("#VergiDairesi").val(),
+                FaturaSaat: $("#FaturaSaat").val(),
+                FaturaTeslimEden: $("#FaturaTeslimEden").val(),
+                FaturaTeslimAlan: $("#FaturaTeslimAlan").val(),
+                Toplam: $("#Toplam").val(),
 
-                sehir: $("#sehir").val(),
-
-                order: orderArr
+                kalemler: orderArr
 
             });
 
